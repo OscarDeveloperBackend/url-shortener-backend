@@ -3,11 +3,14 @@ const urlService = require("../services/url.services");
 const getAllUrl = async (req, res) => {
   try {
     const data = await urlService.getAll();
-    if (data.lengt === 0) {
-      return res.status(404).json({ message: "No hay data." });
+    if (data.length === 0) {
+      return res.status(200).json([]);
     }
     return res.status(200).json(data);
-  } catch (error) {}
+  } catch (error) {
+    res.status(500).json({ message: error.message })
+
+  }
 };
 
 const createUrlShort = async (req, res) => {
