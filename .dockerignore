@@ -1,0 +1,13 @@
+# Dependencias locales
+node_modules
+
+# Archivos de configuración que no deben ir en la imagen
+.dockerignore
+.git
+.gitignore
+.env
+.env.*
+.nvmrc
+
+# Archivos de desarrollo
+*.log

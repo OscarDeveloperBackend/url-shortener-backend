@@ -1,5 +1,6 @@
 services:
   backend-url-shortener:
+    command: npm run dev
     build: .
     image: node-backend-url-shortener
     container_name: backend-url-shortener
