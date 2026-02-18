@@ -1,5 +1,13 @@
 const urlService = require("../services/url.services");
 
+const init = async (req, res) => {
+  return res.status(200).json({
+    message: "BIENVENIDO AL ACORTADOR DE URL.",
+    documentacion:
+      "https://github.com/OscarDeveloperBackend/url-shortener-backend",
+  });
+};
+
 const getAllUrl = async (req, res) => {
   try {
     const data = await urlService.getAll();
@@ -8,8 +16,7 @@ const getAllUrl = async (req, res) => {
     }
     return res.status(200).json(data);
   } catch (error) {
-    res.status(500).json({ message: error.message })
-
+    res.status(500).json({ message: error.message });
   }
 };
 
@@ -36,4 +43,4 @@ const redirectUrl = async (req, res) => {
   }
 };
 
-module.exports = { createUrlShort, redirectUrl, getAllUrl };
+module.exports = { init, createUrlShort, redirectUrl, getAllUrl };
